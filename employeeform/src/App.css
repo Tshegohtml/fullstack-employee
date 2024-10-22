@@ -1,0 +1,109 @@
+/* General styling for the app */
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+ 
+}
+
+/* Styling for buttons */
+.navButton {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.navButton.active {
+  background-color: #0056b3;
+}
+
+.navButton:hover {
+  background-color: #0056b3;
+}
+
+.navButton:active {
+  background-color: #003d7a;
+}
+
+/* Styling for the form container */
+.formContainer input, .formContainer select {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 50%;
+}
+
+.formButton {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.formButton:hover {
+  background-color: #218838;
+}
+
+.formButton:active {
+  background-color: #1e7e34;
+}
+
+.error {
+  color: red;
+  margin: 10px 0;
+}
+
+/* Styling for the employee table */
+.employeeContainer {
+  margin-top: 20px;
+}
+
+.employeeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employeeTable th, .employeeTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align:center;
+}
+
+.employeeTable th {
+  background-color: #f4f4f4;
+}
+
+.employeeTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.employeeTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.listButton {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.listButton:hover {
+  background-color: #0056b3;
+}
+
+.listButton:active {
+  background-color: #003d7a;
+}
