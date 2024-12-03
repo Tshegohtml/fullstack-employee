@@ -1,18 +1,18 @@
 const { collection, addDoc, getDocs, deleteDoc, doc } = require("firebase/firestore");
 const { db } = require('../config/firebase'); // Ensure this path is correct
 
-// POST: Add a new employee
+
 const addUser = async (req, res) => {
     console.log("Request body:", req.body);
     
-    const { firstName, lastName } = req.body;
+    const { firstName, lastName, phone, gender,position,idNumber ,email,image } = req.body;
   
-    if (!firstName || !lastName) {
+    if (!firstName || !lastName || !phone || !gender  || !position || !idNumber || !email || !image ) {
       return res.status(400).json({ message: "First name and last name are required." });
     }
   
     try {
-      await addDoc(collection(db, "employees"), { firstName, lastName });
+      await addDoc(collection(db, "employees"), { firstName, lastName, phone, gender, idNumber, position, email , image });
       res.json({ message: "Employee added successfully" });
     } catch (error) {
       console.error("Error adding employee", error);
@@ -21,7 +21,7 @@ const addUser = async (req, res) => {
   };
   
 
-// GET: Retrieve all employees
+
 const getUsers = async (req, res) => {
   try {
     console.log("GET request to /getUsers");

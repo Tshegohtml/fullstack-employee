@@ -1,23 +1,25 @@
 const { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } = require("firebase/auth");
-const { getFirestore, collection, addDoc, getDocs, query, getDoc, doc } = require("firebase/firestore");
-const {auth} =require('../config/firebase')
-const { db } = require("../config/firebase");
+const {  collection, addDoc, getDocs, query, getDoc, doc } = require("firebase/firestore");
+const {auth, db} =require("../config/firebase")
+
+
 const SignUp = async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
-        try {
-           const user = await createUserWithEmailAndPassword(auth, email, password);
-            const docRef = await addDoc(collection(db, "users"), {
-          firstName:firstName,
-          lastName:lastName,
-          email: email,
-          password:password
-            });
-            res.json({ message: "User created successfully", user: user, docRef: docRef.id });
-        } catch (error) {
-            console.error(error);
-            res.status(400).json({ message: error.message });
-        }
-    };
+    try {
+        const user = await createUserWithEmailAndPassword(auth, email, password);
+        const docRef = await addDoc(collection(db, "users"), {
+            email: email,
+            firstName: firstName, 
+            lastName: lastName,
+            password:password
+        });
+        res.json({ message: "User created successfully", user: user, docRef: docRef.id });
+    } catch (error) {
+        console.error(error);
+        res.status(400).json({ message: error.message });
+    }
+};
+
     const Login = async (req, res) => {
         const { email, password } = req.body;
         try {

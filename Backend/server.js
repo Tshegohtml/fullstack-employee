@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
-const dbRoutes = require("./routes/db"); // Import the routes
+const dbRoutes = require("./routes/db");
+const authRoutes = require("./routes/auth")
+const admin = require('firebase-admin'); 
+const cors = require('cors');
 
-// Middleware to parse JSON request body
 app.use(express.json());
+app.use(cors()); 
 
-// Set up the routes, using /api as the base URL
 app.use('/api', dbRoutes);
+app.use('/api',authRoutes);
 
-// Start the server
+
 app.listen(5000, () => {
   console.log('Server is running on http://localhost:5000');
 });
